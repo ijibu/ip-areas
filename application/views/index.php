@@ -71,6 +71,7 @@
 			$.getScript(url, function(){
 				if (typeof remote_ip_info != 'undefined') {
 					if (remote_ip_info.ret == 1) {
+						remote_ip_info.ip = ip;
 						$.ajax({
 							type: "POST",
 							url: '/main/syncIpName',
