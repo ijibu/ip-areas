@@ -69,7 +69,7 @@
 			return;
 		}
 		
-		for (var j = 0; j < 1; j++) {
+		for (var j = 0; j < 2; j++) {
 			if (typeof ips[i] == 'undefined') {		//防止数组越界
 				break;
 			}
@@ -135,7 +135,7 @@
 		});	
 	}
 	
-	var getIpInt = setInterval('getIp()', 5000);
+	var getIpInt = setInterval('getIp()', 1000);
 </script>
 </head>
 
