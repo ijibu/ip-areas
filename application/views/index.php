@@ -5,7 +5,7 @@
 <title>IP抓包程序</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<script type="text/javascript" src="<?php echo JS_PATH ?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo JS_PATH ?>jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo JS_PATH ?>startip<?php echo $step ?>.js"></script>
 <script type="text/javascript">
 	var Ijibu = {};
@@ -59,14 +59,12 @@
 	 * 获取IP地址，每次获取5个，先不考虑并行出错的情况。
 	 */
 	function getIp() {
-		for (var j = 0; j < 5; j++) {
+		for (var j = 0; j < 1; j++) {
 			if (i >= ipCount) {
 				alert('执行完毕');
 				clearInterval(getIpInt);
 			}
 			var ip = ips[i], url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip=' + ip;
-			i++;
-			Ijibu.setCookie('getLen', i, 24 * 3, '/');
 			
 			$.getScript(url, function(){
 				if (typeof remote_ip_info != 'undefined') {
@@ -95,6 +93,8 @@
 			});	
 		}
 
+		i++;
+		Ijibu.setCookie('getLen', i, 24 * 3, '/');
 		$('#ipCount').html(i);
 	}
 	
@@ -130,7 +130,7 @@
 		}
 	}
 	
-	var getIpInt = setInterval('getIp()', 1000), sendErrorInt = sendErrors('sendErrors()', 250000);
+	var getIpInt = setInterval('getIp()', 5000), sendErrorInt = sendErrors('sendErrors()', 250000);
 </script>
 </head>
 
