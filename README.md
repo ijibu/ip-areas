@@ -20,12 +20,17 @@ ip-areas
 	在本代码库中，调用：/main/parseIpTxt 方法即可实现。
 	
 4.将uniquestartip.ini入库
-	在本代码库中，调用：/main/importIp 方法将会在application/cache/目录下生成 insertip1.sql文件，将该文件导入mysql即可，已做了插入优化。
+	
+    在本代码库中，调用：/main/importIp 方法
+
+    将会在application/cache/目录下生成 insertip1.sql文件，将该文件导入mysql即可，已做了插入优化。
 
 5.本来在后台用PHP的curl模拟浏览器，伪造代理和IP去循环调用新浪IP查询接口，结果查询几千条后就不返回查询结果了。由于工作急迫，没有花时间去研究curl，遂采用下面的方式来实现。采用JS去循环调用新浪IP查询接口，然后再把查询结果的数据提交到后台入库。
     处理startip.ini(方法其实就是批量替换)，处理成js的数组形式，这样好在JS中进行循环，保存在statip.js,内容如下：
     var ips = ['61.138.100.131', '61.138.100.134'];
 	本代码库为了考虑低端浏览器，保存为多个js文件，每个文件50000个IP。会在application/cache/目录下生成多个statip[n].js，拷贝到static/js/目录下面即可。
+
+    在本代码库中，调用：/main/segmentIp2js 方法
 
 5.最终在前段引入startip.js文件，然后即可。
 
