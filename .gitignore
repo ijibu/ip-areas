@@ -11,3 +11,4 @@ bin/
 .settings/
 .buildpath
 *.log
+application/logs/
