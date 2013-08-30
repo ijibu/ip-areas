@@ -248,10 +248,12 @@ class Main extends MY_Controller {
 	 */
 	public function getIpErrors() {
 		$ipErrors = $this->input->get_post('errorIp');
-		if ($ipErrors) {
-			$file = 'iperrors.log';
-			
-			error_log($ipErrors . "\r\n", 3, $file);
+		$ip = ip2long($ipErrors);
+		if ($ip !== false) {
+			$this->load->model('qqwry_model');
+			$this->qqwry_model->update(array('ip' => $ip, 'status' => 3, 'modifyTime' => time()));
 		}
+		
+		echo $ipErrors;
 	}
 }

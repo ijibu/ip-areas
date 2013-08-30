@@ -130,9 +130,21 @@
 					});
 				}
 			} else {
+				sendErrors(ip);
 				//clearInterval(getIpInt);
 			}
 		});	
+	}
+	
+	/**
+	 * 发送获取IP地址错误的记录
+	 */
+	function sendErrors(ip) {
+		$.ajax({
+			type: "POST",
+			url: '/main/getIpErrors',
+			data: {errorIp: ip}
+		});
 	}
 	
 	var getIpInt = setInterval('getIp()', 1000);
