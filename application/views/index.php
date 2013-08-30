@@ -73,9 +73,10 @@
 			if (typeof ips[i] == 'undefined') {		//防止数组越界
 				break;
 			}
-			
+
+			/**
 			var ip = ips[i], url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip=' + ip;
-			
+			//由于是异步操作，会使得回调函数中的ip被重写，所以会使得发布到后台去的ip连续5次是一样的bug。
 			$.getScript(url, function(){
 				if (typeof remote_ip_info != 'undefined') {
 					if (remote_ip_info.ret == 1) {
@@ -85,24 +86,53 @@
 							url: '/main/syncIpName',
 							data: remote_ip_info,
 							//dataType: "json",
-							success: function() {
+							success: function(json) {
 								//clearInterval(getIpInt);
 							},
 							error: function(XMLHttpRequest, textStatus) {
-								alert(textStatus);
+								//alert(textStatus);
 								//clearInterval(getIpInt);
 							}
 						});
 					}
-				} else {
-					//clearInterval(getIpInt);
 				}
-			});	
+			});
+			*/
+			
+			var ip = ips[i];
+			getSinaIp(ip);
 		}
 
 		i++;
 		Ijibu.setCookie(cookieName, i, 24 * 3, '/');
 		$('#ipCount').html(i);
+	}
+
+	function getSinaIp(ip) {
+		var url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip=' + ip;
+		
+		$.getScript(url, function(){
+			if (typeof remote_ip_info != 'undefined') {
+				if (remote_ip_info.ret == 1) {
+					remote_ip_info.ip = ip;
+					$.ajax({
+						type: "POST",
+						url: '/main/syncIpName',
+						data: remote_ip_info,
+						//dataType: "json",
+						success: function() {
+							//clearInterval(getIpInt);
+						},
+						error: function(XMLHttpRequest, textStatus) {
+							//alert(textStatus);
+							//clearInterval(getIpInt);
+						}
+					});
+				}
+			} else {
+				//clearInterval(getIpInt);
+			}
+		});	
 	}
 	
 	var getIpInt = setInterval('getIp()', 5000);
