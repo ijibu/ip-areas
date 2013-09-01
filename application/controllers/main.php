@@ -254,6 +254,6 @@ class Main extends MY_Controller {
 			$this->qqwry_model->update(array('ip' => $ip, 'status' => 3, 'modifyTime' => time()));
 		}
 		
-		echo $ipErrors;
+		echo $ip;
 	}
 }
