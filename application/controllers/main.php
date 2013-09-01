@@ -217,7 +217,7 @@ class Main extends MY_Controller {
 			
 			$this->load->model('iparea_model');
 			$this->load->model('qqwry_model');
-			$ret1 = $this->iparea_model->get(array('startIp <=' => $ip, 'endIp >=' => $ip));
+			$ret1 = $this->iparea_model->get(array('startIp <=' => $ip, 'endIp >=' => $ip))->row();
 			if ($ret1) {		//查找到了记录
 				$this->qqwry_model->update(array('ip' => $ip, 'status' => 2, 'modifyTime' => time()));
 			} else {
