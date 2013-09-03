@@ -51,7 +51,8 @@ ip-areas
 Acknowledgements
 ----------------
 
-© 2013, Ijibu. Released under the [MIT License](License.md).	
+© 2013, Ijibu. Released under the [MIT License](License.md).
+	
 **ip-areas** is authored and maintained by [ijibu][rsc].
 
  * [Weibo](http://weibo.com/ijibu) (@ijibu)
