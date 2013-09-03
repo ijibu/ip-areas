@@ -48,4 +48,17 @@ ip-areas
 
     由于鄙人参与开源项目少，所以估计文档和思路会让人不方便上手，多多原谅。
     
-	有什么疑问，请联系ijibu(微博：@ijibu， email: ijibu.com@gmail.com)
+Acknowledgements
+----------------
+
+© 2013, Ijibu. Released under the [MIT License](License.md).	
+**ip-areas** is authored and maintained by [ijibu][rsc].
+
+* [My website](http://ricostacruz.com) (ricostacruz.com)
+* [Github](http://github.com/rstacruz) (@rstacruz)
+* [Twitter](http://twitter.com/rstacruz) (@rstacruz)
+
+[rsc]: http://weibo.com/ijibu
+* [微博](http://weibo.com/ijibu) (@ijibu)
+* [Github](http://github.com/ijibu) (@ijibu)
+	* [Blog](http://blog.csdn.net/ijibu) (http://blog.csdn.net/ijibu)
