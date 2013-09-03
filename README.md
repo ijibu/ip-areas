@@ -54,11 +54,8 @@ Acknowledgements
 © 2013, Ijibu. Released under the [MIT License](License.md).	
 **ip-areas** is authored and maintained by [ijibu][rsc].
 
-* [My website](http://ricostacruz.com) (ricostacruz.com)
-* [Github](http://github.com/rstacruz) (@rstacruz)
-* [Twitter](http://twitter.com/rstacruz) (@rstacruz)
+ * [Weibo](http://weibo.com/ijibu) (@ijibu)
+ * [Github](http://github.com/ijibu) (@ijibu)
+ * [Blog](http://blog.csdn.net/ijibu) (http://blog.csdn.net/ijibu)
 
 [rsc]: http://weibo.com/ijibu
-* [微博](http://weibo.com/ijibu) (@ijibu)
-* [Github](http://github.com/ijibu) (@ijibu)
-	* [Blog](http://blog.csdn.net/ijibu) (http://blog.csdn.net/ijibu)
